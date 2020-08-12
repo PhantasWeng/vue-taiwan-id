@@ -1,7 +1,6 @@
 {
   "name": "vue-taiwain-id",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.1.2",
     "core-js": "^3.6.5",
+    "taiwan-id-validator2": "^0.2.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -27,5 +29,26 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "- [vue-taiwain-id](#vue-taiwain-id) - [Document](#document)   - [type](#type) - [Dev](#dev)   - [Project setup](#project-setup)     - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)     - [Compiles and minifies for production](#compiles-and-minifies-for-production)     - [Run your unit tests](#run-your-unit-tests)     - [Lints and fixes files](#lints-and-fixes-files)     - [Customize configuration](#customize-configuration)",
+  "main": "src/plugins/vueTaiwanId/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhantasWeng/vue-taiwan-id.git"
+  },
+  "keywords": [
+    "Taiwan",
+    "id",
+    "validate",
+    "validator"
+  ],
+  "author": "Phantas Weng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhantasWeng/vue-taiwan-id/issues"
+  },
+  "homepage": "https://github.com/PhantasWeng/vue-taiwan-id#readme"
 }

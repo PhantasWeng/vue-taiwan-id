@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>vueTaiwanId</h1>
+    <!-- <input type="text" id="test" v-vueTaiwanId:aType.someBoolean="'身份證字號'" value=""/> -->
+    <!-- <input type="text" value="" /> -->
+    <hr>
+    <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" />
+    {{ result }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      result: null,
+      myId: process.env.VUE_APP_TEST_ID
+    }
+  },
+  methods: {
+    onValidated: function (event) {
+      console.log(event)
+      this.result = event
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

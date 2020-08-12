@@ -9383,6 +9383,11 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
+taiwan-id-validator2@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/taiwan-id-validator2/-/taiwan-id-validator2-0.2.0.tgz#ea9ff44ded2c1f2751fa08b420febc829b1f531c"
+  integrity sha512-AzPe/REpDI+1IqIdu8s0yCzLg/+pjyvGbjoGR7+jPii9cmGh68ReH8Lz7R1WFTlKEtXM9GF1loq9BJIpgKnmBQ==
+
 tapable@^0.1.8:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.1.10.tgz#29c35707c2b70e50d07482b5d202e8ed446dafd4"
