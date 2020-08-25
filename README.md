@@ -1,6 +1,10 @@
-# vue-taiwain-id
+# vue-taiwan-id
 
-- [vue-taiwain-id](#vue-taiwain-id)
+A Vue wrap for [taiwan-id-validator2](https://github.com/doggy8088/taiwan-id-validator2)
+
+---
+
+- [vue-taiwan-id](#vue-taiwan-id)
 - [Document](#document)
   - [type](#type)
 - [Dev](#dev)

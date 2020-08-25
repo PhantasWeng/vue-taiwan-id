@@ -1,18 +1,21 @@
 {
-  "name": "vue-taiwain-id",
+  "name": "vue-taiwan-id",
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "core-js": "^3.6.5",
     "taiwan-id-validator2": "^0.2.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.12",
+    "vuepress": "^1.5.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -21,6 +24,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/test-utils": "^1.0.3",
+    "@vuepress/plugin-active-header-links": "^1.5.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
@@ -30,7 +34,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "description": "- [vue-taiwain-id](#vue-taiwain-id) - [Document](#document)   - [type](#type) - [Dev](#dev)   - [Project setup](#project-setup)     - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)     - [Compiles and minifies for production](#compiles-and-minifies-for-production)     - [Run your unit tests](#run-your-unit-tests)     - [Lints and fixes files](#lints-and-fixes-files)     - [Customize configuration](#customize-configuration)",
+  "description": "- [vue-taiwan-id](#vue-taiwan-id) - [Document](#document)   - [type](#type) - [Dev](#dev)   - [Project setup](#project-setup)     - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)     - [Compiles and minifies for production](#compiles-and-minifies-for-production)     - [Run your unit tests](#run-your-unit-tests)     - [Lints and fixes files](#lints-and-fixes-files)     - [Customize configuration](#customize-configuration)",
   "main": "src/plugins/vueTaiwanId/index.js",
   "directories": {
     "test": "tests"
