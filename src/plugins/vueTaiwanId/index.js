@@ -1,3 +1,4 @@
+// #region import
 import {
   isGuiNumberValid, // 公司統一編號
   isNationalIdentificationNumberValid, // 身分證字號
@@ -6,6 +7,8 @@ import {
   isEInvoiceCellPhoneBarcodeValid, // 手機條碼
   isEInvoiceDonateCodeValid // 捐贈碼
 } from 'taiwan-id-validator2'
+// #endregion import
+
 import { Promise } from 'core-js'
 
 console.log('公司統一編號', '12345675', isGuiNumberValid('12345675'))
