@@ -1754,7 +1754,7 @@
   dependencies:
     nprogress "^0.2.0"
 
-"@vuepress/plugin-register-components@1.5.4":
+"@vuepress/plugin-register-components@1.5.4", "@vuepress/plugin-register-components@^1.5.4":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-1.5.4.tgz#2f62d0790471ef53935ff2c808d8045c0473067f"
   integrity sha512-Y1U9j6unZp1ZhnHjQ9yOPY+vxldUA3C1EwT6UgI75j5gxa5Hz6NakoIo6mbhaYHlGmx33o/MXrxufLPapo/YlQ==
@@ -10963,6 +10963,18 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-taiwan-id@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vue-taiwan-id/-/vue-taiwan-id-0.1.0.tgz#44abf95a0f61341197f0fe5d006883fe07213825"
+  integrity sha512-NCsUM5XRd/xTSlbJHlB6/C+YQB5x7+I20AepX6LDzRJvgNAdJoRujCmPJjWwXTGTPhCPZdOWw15u8jPHvfjWBQ==
+  dependencies:
+    "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
+    "@vue/babel-preset-jsx" "^1.1.2"
+    core-js "^3.6.5"
+    taiwan-id-validator2 "^0.2.0"
+    vue "^2.6.12"
+    vuepress "^1.5.4"
 
 vue-template-compiler@^2.6.10, vue-template-compiler@^2.6.11:
   version "2.6.12"

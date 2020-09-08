@@ -11,12 +11,12 @@ import {
 
 import { Promise } from 'core-js'
 
-console.log('公司統一編號', '12345675', isGuiNumberValid('12345675'))
-console.log('身分證字號', 'A12345678', isNationalIdentificationNumberValid('A12345678'))
-console.log('居留證編號', 'AA00000009', isResidentCertificateNumberValid('AA00000009'))
-console.log('自然人憑證', 'AA12345678901234', isCitizenDigitalCertificateValid('AA12345678901234'))
-console.log('手機條碼', 'AA12345678901234', isEInvoiceCellPhoneBarcodeValid('AA12345678901234'))
-console.log('捐贈碼', 'AA12345678901234', isEInvoiceDonateCodeValid('AA12345678901234'))
+// console.log('公司統一編號', '12345675', isGuiNumberValid('12345675'))
+// console.log('身分證字號', 'A12345678', isNationalIdentificationNumberValid('A12345678'))
+// console.log('居留證編號', 'AA00000009', isResidentCertificateNumberValid('AA00000009'))
+// console.log('自然人憑證', 'AA12345678901234', isCitizenDigitalCertificateValid('AA12345678901234'))
+// console.log('手機條碼', 'AA12345678901234', isEInvoiceCellPhoneBarcodeValid('AA12345678901234'))
+// console.log('捐贈碼', 'AA12345678901234', isEInvoiceDonateCodeValid('AA12345678901234'))
 
 const defaultOptions = {}
 export default {
@@ -34,10 +34,6 @@ export default {
         // 布景主題
         theme: {
           type: String
-        },
-        name: {
-          type: String,
-          required: true
         },
         // 驗證類型
         type: {
@@ -102,7 +98,7 @@ export default {
               resolve(this.mapValidType(this.type)(this.inputValue))
             } else {
               this.mapValidType(this.type)(this.inputValue)
-              reject(new Error(`${this.name}: ${this.inputValue} is not valid for ${this.type}`))
+              reject(new Error(`${this.inputValue}: is not valid for ${this.type}`))
             }
           })
         }
@@ -114,7 +110,7 @@ export default {
           handler: function (val, oldVal) {
             if (val) {
               this.$emit('input', val)
-              this.$emit('validated', true)
+              // this.$emit('validated', true)
               this.doValid().then(res => {
                 this.$emit('validated', true)
               }, err => {
