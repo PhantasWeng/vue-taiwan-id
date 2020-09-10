@@ -18,12 +18,22 @@ import { Promise } from 'core-js'
 // console.log('手機條碼', 'AA12345678901234', isEInvoiceCellPhoneBarcodeValid('AA12345678901234'))
 // console.log('捐贈碼', 'AA12345678901234', isEInvoiceDonateCodeValid('AA12345678901234'))
 
+const lib = {
+  isGuiNumberValid,
+  isNationalIdentificationNumberValid,
+  isResidentCertificateNumberValid,
+  isCitizenDigitalCertificateValid,
+  isEInvoiceCellPhoneBarcodeValid,
+  isEInvoiceDonateCodeValid
+}
+
 const defaultOptions = {}
 export default {
   install (vue, opts) {
-    console.log('vueTaiwanId installed')
     const configs = { ...defaultOptions, ...opts }
+    console.group('----- vueTaiwanId installed -----')
     console.log('configs', configs)
+    console.groupEnd()
 
     // component
     vue.component('vueTaiwanId', {
@@ -55,9 +65,11 @@ export default {
         }
       },
       created () {
-        console.log(this.type)
-        console.log(this.options)
-        console.log(configs)
+        console.group('----- Component Created -----')
+        console.log('type', this.type)
+        console.log('options', this.options)
+        console.log('configs', configs)
+        console.groupEnd()
         this.inputValue = this.value
       },
       render: function (h) {
@@ -69,35 +81,13 @@ export default {
         }
       },
       methods: {
-        mapValidType: function (type) {
-          switch (type) {
-            case 'isGuiNumberValid':
-              // 統一編號 Uniform numbers
-              return isGuiNumberValid
-            case 'isNationalIdentificationNumberValid':
-              // 身分證字號 ID number
-              return isNationalIdentificationNumberValid
-            case 'isResidentCertificateNumberValid':
-              // 居留證編號 Residence permit number
-              return isResidentCertificateNumberValid
-            case 'isCitizenDigitalCertificateValid':
-              // 自然人憑證 Natural person certificate
-              return isCitizenDigitalCertificateValid
-            case 'isEInvoiceCellPhoneBarcodeValid':
-              // 手機條碼 Mobile phone barcode
-              return isEInvoiceCellPhoneBarcodeValid
-            case 'isEInvoiceDonateCodeValid':
-              // 捐贈碼 Donation code
-              return isEInvoiceDonateCodeValid
-          }
-        },
         doValid: function () {
           return new Promise((resolve, reject) => {
-            const result = this.mapValidType(this.type)(this.inputValue)
+            const result = this.lib[this.type](this.inputValue)
             if (result) {
-              resolve(this.mapValidType(this.type)(this.inputValue))
+              resolve(this.lib[this.type](this.inputValue))
             } else {
-              this.mapValidType(this.type)(this.inputValue)
+              this.lib[this.type](this.inputValue)
               reject(new Error(`${this.inputValue}: is not valid for ${this.type}`))
             }
           })
@@ -124,20 +114,28 @@ export default {
       }
     })
     // directive
+    console.dir(vue.directive)
     vue.directive('vueTaiwanId', {
       inserted: function (el) {
+        console.log('inserted')
         // Focus the element
-        el.focus()
+        // el.focus()
       },
-      bind (el, binding, vnode) {
-        console.group('test')
+      bind (el, binding, vnode, expression) {
+        console.log('bind')
+        console.group('----- v-directive -----')
         console.dir(el)
-        console.log(vnode)
+        console.dir(vnode)
         console.log('binding', binding)
-        console.log('this', this)
-        const result = isNationalIdentificationNumberValid(el.innerHTML)
-        console.log('result', result)
+        // console.log('this', this)
+        const type = binding.arg
+        const value = el.innerHTML
+        const result = lib[type](value)
+        console.log('result', type, value, result)
         console.groupEnd()
+        const clone = Object.assign({}, el.innerHTML)
+        el.innerHTML = '<div>12123</div>'
+        console.log(clone, el.innerHTML)
         // root.$set(
         //   root.targets,
         //   binding.value,
@@ -157,8 +155,10 @@ export default {
         // })
       },
       update: function (el, binding, vnode) {
-        console.log(vnode)
-        console.log('got called on upadate')
+        console.group('---- v-directive upadate -----')
+        const result = isNationalIdentificationNumberValid(el.innerHTML)
+        console.log('result', el.innerHTML, result)
+        console.groupEnd()
       },
       componentUpdated: function () {
 

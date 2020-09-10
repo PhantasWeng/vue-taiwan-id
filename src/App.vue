@@ -8,10 +8,9 @@
       {{ exampleCode }}
     </pre>
     <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" />
-    <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" />
-    <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" />
-    <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" />
     {{ result }}
+    <hr>
+    <div v-vueTaiwanId:isNationalIdentificationNumberValid>{{ myId }}</div>
   </div>
 </template>
 
@@ -27,8 +26,13 @@ export default {
   },
   methods: {
     onValidated: function (event) {
-      console.log(event)
+      // console.log('onValidated', event)
       this.result = event
+    }
+  },
+  mounted () {
+    if (process) {
+      // console.log(process.env.NODE_ENV)
     }
   }
 }
