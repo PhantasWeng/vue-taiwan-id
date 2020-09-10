@@ -3,14 +3,12 @@
     <h1>vueTaiwanId</h1>
     <!-- <input type="text" id="test" v-vueTaiwanId:aType.someBoolean="'身份證字號'" value=""/> -->
     <!-- <input type="text" value="" /> -->
+    <!-- <hr> -->
+    <!-- <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" /> -->
+    <!-- {{ result }} -->
     <hr>
-    <pre>
-      {{ exampleCode }}
-    </pre>
-    <vueTaiwanId ref="testId" name="身份證字號" type="isNationalIdentificationNumberValid" @validated="onValidated" v-model="myId" />
-    {{ result }}
-    <hr>
-    <div v-vueTaiwanId:isNationalIdentificationNumberValid>{{ myId }}</div>
+    <div v-vueTaiwanId:isNationalIdentificationNumberValid.immediate>{{ myId }}</div>
+    <div v-vueTaiwanId:isGuiNumberValid.immediate>12345675</div>
   </div>
 </template>
 

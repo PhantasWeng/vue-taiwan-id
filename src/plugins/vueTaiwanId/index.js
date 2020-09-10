@@ -26,6 +26,15 @@ const lib = {
   isEInvoiceCellPhoneBarcodeValid,
   isEInvoiceDonateCodeValid
 }
+class ValidItem {
+  constructor (data) {
+    this.type = data.type
+    this.value = data.value
+    this.status = data.status
+  }
+}
+const errorsBag = []
+const validatedBag = []
 
 const defaultOptions = {}
 export default {
@@ -117,25 +126,29 @@ export default {
     console.dir(vue.directive)
     vue.directive('vueTaiwanId', {
       inserted: function (el) {
-        console.log('inserted')
+        // console.log('inserted')
         // Focus the element
         // el.focus()
       },
-      bind (el, binding, vnode, expression) {
-        console.log('bind')
+      bind (el, binding, vnode) {
+        // console.log('bind')
         console.group('----- v-directive -----')
         console.dir(el)
         console.dir(vnode)
         console.log('binding', binding)
-        // console.log('this', this)
+        console.log('binding.modifiers', binding.modifiers)
+        console.groupEnd()
         const type = binding.arg
         const value = el.innerHTML
         const result = lib[type](value)
-        console.log('result', type, value, result)
-        console.groupEnd()
-        const clone = Object.assign({}, el.innerHTML)
-        el.innerHTML = '<div>12123</div>'
-        console.log(clone, el.innerHTML)
+        // console.log('result', type, value, result)
+        if (!result) {
+          errorsBag.push(new ValidItem({ type, value, status: result }))
+        } else {
+          validatedBag.push(new ValidItem({ type, value, status: result }))
+        }
+        console.log(errorsBag)
+        console.log(validatedBag)
         // root.$set(
         //   root.targets,
         //   binding.value,
